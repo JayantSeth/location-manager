@@ -1,0 +1,11 @@
+<h1 class="text-center mt-4">Location Type Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron custom-page">
+    <p>Location Type: <%= @location_type.location_type %></p> 
+    <p>Comment: <%= @location_type.comment %></p>
+    <p>
+      <%= link_to "Edit", edit_location_type_path(id: @location_type.id), class: "btn btn-outline-info" %> 
+      <%= link_to "Delete", location_type_path(id: @location_type.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
+    </p>
+  </div>
+</div>
