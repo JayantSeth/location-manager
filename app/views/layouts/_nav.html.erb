@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Location Manager</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,10 +9,19 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Location
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Index", locations_path, class: "dropdown-item" %>
+            <%= link_to "Create", new_location_path, class: "dropdown-item" %>
+          </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,13 +32,26 @@
             <%= link_to "Create", new_location_type_path, class: "dropdown-item" %>
           </div>
         </li>
-        <li class="nav-item">
-          <%= link_to "Logout", destroy_user_session_path, class: 'nav-link', method: :delete %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Location Contacts
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Index", location_contacts_path, class: "dropdown-item" %>
+            <%= link_to "Create", new_location_contact_path, class: "dropdown-item" %>
+          </div>
         </li>
         <% else %>
           <%= link_to "Sign In", new_user_session_path, class: 'nav-link' %>
         <% end %>
       </ul>
+      <% if user_signed_in? %>
+      <ul class="navbar-nav mr-right">
+        <li class="nav-item">
+          <%= link_to "Logout", destroy_user_session_path, class: 'nav-link', method: :delete %>
+        </li>
+      </ul>
+      <% end %>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>

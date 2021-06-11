@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_173810) do
+ActiveRecord::Schema.define(version: 2021_06_11_051348) do
+
+  create_table "location_contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.string "email"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "location_ip_schemas", force: :cascade do |t|
+    t.string "network"
+    t.string "subnet"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "location_types", force: :cascade do |t|
     t.string "location_type"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "location_name"
+    t.integer "location_type_id"
+    t.string "location_address"
     t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

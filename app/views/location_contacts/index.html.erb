@@ -1,0 +1,27 @@
+<h1 class="text-center text-white mt-4">Location Contacts</h1>
+<div class="container mt-4">
+  <table class="table table-striped table-secondary index-page">
+    <thead class="text-center text-white">
+      <tr>
+        <th scope="col">Contact Name</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Contact Email</th>
+        <th scope="col">Comment</th>
+        <th colspan="3">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @location_contacts.each do |location_contact| %>
+        <tr class="text-center">
+          <td><%= location_contact.name %></td>
+          <td><%= location_contact.number %></td>
+          <td><%= location_contact.email %></td>
+          <td><%= location_contact.comment %></td>
+          <td><%= link_to "View", location_contact_path(id: location_contact.id), class: "btn btn-outline-success" %></td>
+          <td><%= link_to "Edit", edit_location_contact_path(id: location_contact.id), class: "btn btn-outline-info" %></td>
+          <td><%= link_to "Delete", location_contact_path(id: location_contact.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

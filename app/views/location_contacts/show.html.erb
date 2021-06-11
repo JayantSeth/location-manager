@@ -1,0 +1,13 @@
+<h1 class="text-center mt-4">Location Contact Details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron custom-page">
+    <p>Contact Name: <%= @location_contact.name %></p> 
+    <p>Contact Number: <%= @location_contact.number %></p> 
+    <p>Contact Email: <%= @location_contact.email %></p> 
+    <p>Comment: <%= @location_contact.comment %></p>
+    <p>
+      <%= link_to "Edit", edit_location_contact_path(id: @location_contact.id), class: "btn btn-outline-info" %> 
+      <%= link_to "Delete", location_contact_path(id: @location_contact.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
+    </p>
+  </div>
+</div>

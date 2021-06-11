@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
   resources :location_types
+  resources :location_contacts
+  resources :locations
   
 end

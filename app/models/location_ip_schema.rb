@@ -1,0 +1,2 @@
+class LocationIpSchema < ApplicationRecord
+end
