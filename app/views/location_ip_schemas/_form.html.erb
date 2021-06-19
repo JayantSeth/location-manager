@@ -1,0 +1,37 @@
+<div class="container custom-page">
+  <div class="row justify-content-center">
+    <div class="col-10">
+        <%= render 'shared/form_error', obj:@location_ip_schema %>
+        <%= form_with(model: @location_ip_schema, class: "shadow p-3 mb-3 rounded", local: true) do |f| %>
+          <div class="form-group row">
+            <%= f.label :"Location Network", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.text_field :network, class: "form-control shadow rounded", placeholder: "Enter location network" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Location Subnet", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.text_field :subnet, class: "form-control shadow rounded", placeholder: "Enter location subnet" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Location", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.collection_select( :location_id, Location.all, :id, :location_name, {}, 
+                { class: "form-control shadow rounded" }) %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :comment, class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.text_field :comment, class: "form-control shadow rounded", placeholder: "Enter a comment" %>
+              </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <%= f.submit(@location_ip_schema.new_record? ? "Create" : "Update", class: "btn btn-outline-light btn-lg") %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<h1 class="text-center mt-4">Location IP Schema details</h1>
+<div class="container text-white text-center">
+  <div class="jumbotron custom-page">
+    <p>Location : <%= @location_ip_schema.location.location_name %></p>
+    <p>Location Type: <%= @location_ip_schema.location.location_type.location_type %></p> 
+    <p>Location Network: <%= @location_ip_schema.network %></p> 
+    <p>Location Subnet: <%= @location_ip_schema.subnet %></p> 
+    <p>Comment: <%= @location_ip_schema.comment %></p>
+    <p>
+      <%= link_to "Edit", edit_location_ip_schema_path(id: @location_ip_schema.id), class: "btn btn-outline-info" %> 
+      <%= link_to "Delete", location_ip_schema_path(id: @location_ip_schema.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
+    </p>
+  </div>
+</div>
