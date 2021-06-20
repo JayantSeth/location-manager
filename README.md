@@ -19,6 +19,8 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+rails db:create 
+rails db:migrate
 
 * Database initialization
 
@@ -28,6 +30,7 @@ Things you may want to cover:
 
 * Deployment instructions
 bundle install
-yarn add bootstrap@4.4.1 jquery popper.js
+yarn add bootstrap@4.4.1 jquery popper.js 
+
 
 * ...
