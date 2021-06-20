@@ -1,0 +1,18 @@
+<% if @ip %>
+  <div class="results-block">
+    <%= render 'shared/form_error', obj:@ip %>
+  </div>
+<% end %>
+
+<%= render 'shared/flash' %>
+
+<% if @location %>
+<div class="container custom-page">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h1>Location Name: <%= @location.location_name %> </h1>
+      <h2>Location Type: <%= @location.location_type.location_type %> </h2>
+    </div> 
+  </div> 
+</div>
+<% end %>

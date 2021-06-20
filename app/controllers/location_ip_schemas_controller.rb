@@ -44,14 +44,25 @@ class LocationIpSchemasController < ApplicationController
   end
 
   def find_location 
-    ip = params["anything"][:ip] 
-    location = LocationIpSchema.search_location(ip) 
-    if location 
-      @location = location 
-      render 'search' 
-    else 
-      flash[:notice] = "Location for IP #{ip} could not be found" 
-      render 'search' 
+    ip = Ip.new(params["anything"][:ip])
+    if ip.valid?
+      location = LocationIpSchema.search_location(ip.ip) 
+      if location 
+        @location = location 
+        respond_to do |format| 
+          format.js { render partial: 'location_ip_schemas/location'}
+        end
+      else 
+        respond_to do |format| 
+          flash.now[:alert] = "Location for IP #{ip.ip} could not be found" 
+          format.js { render partial: 'location_ip_schemas/location'}
+        end
+      end
+    else
+      @ip = ip
+      respond_to do |format| 
+        format.js { render partial: 'location_ip_schemas/location'}
+      end
     end
   end
 
