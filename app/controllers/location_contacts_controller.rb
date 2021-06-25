@@ -42,7 +42,7 @@ class LocationContactsController < ApplicationController
 
   private 
   def set_location_contact_params 
-    params.require(:location_contact).permit(:name, :number, :email, :comment)
+    params.require(:location_contact).permit(:name, :number, :email, :location_id, :comment)
   end
 
   def set_location_contact 

@@ -4,6 +4,8 @@
     <p>Contact Name: <%= @location_contact.name %></p> 
     <p>Contact Number: <%= @location_contact.number %></p> 
     <p>Contact Email: <%= @location_contact.email %></p> 
+    <p>Location: <%= @location_contact.location.location_name %></p>
+    <p>Location Type: <%= @location_contact.location.location_type.location_type %></p>
     <p>Comment: <%= @location_contact.comment %></p>
     <p>
       <%= link_to "Edit", edit_location_contact_path(id: @location_contact.id), class: "btn btn-outline-info" %> 

@@ -1,7 +1,7 @@
 <div class="container custom-page">
   <div class="row justify-content-center">
     <div class="col-10">
-        <%= render 'shared/flash', obj:@location_contact %>
+        <%= render 'shared/form_error', obj:@location_contact %>
         <%= form_with(model: @location_contact, class: "shadow p-3 mb-3 rounded", local: true) do |f| %>
           <div class="form-group row">
             <%= f.label :"Name", class: "col-2 col-form-label text-light" %>
@@ -19,6 +19,13 @@
             <%= f.label :"Email", class: "col-2 col-form-label text-light" %>
               <div class="col-10">
                 <%= f.email_field :email, class: "form-control shadow rounded", placeholder: "Enter Contact email" %>
+              </div>
+          </div>
+          <div class="form-group row">
+            <%= f.label :"Location", class: "col-2 col-form-label text-light" %>
+              <div class="col-10">
+                <%= f.collection_select( :location_id, Location.all, :id, :location_name, {}, 
+                { class: "form-control shadow rounded" }) %>
               </div>
           </div>
           <div class="form-group row">

@@ -6,6 +6,8 @@
         <th scope="col">Contact Name</th>
         <th scope="col">Contact Number</th>
         <th scope="col">Contact Email</th>
+        <th scope="col">Location</th>
+        <th scope="col">Location Type</th>
         <th scope="col">Comment</th>
         <th colspan="3">Action</th>
       </tr>
@@ -16,6 +18,8 @@
           <td><%= location_contact.name %></td>
           <td><%= location_contact.number %></td>
           <td><%= location_contact.email %></td>
+          <td><%= location_contact.location.location_name %></td>
+          <td><%= location_contact.location.location_type.location_type %></td>
           <td><%= location_contact.comment %></td>
           <td><%= link_to "View", location_contact_path(id: location_contact.id), class: "btn btn-outline-success" %></td>
           <td><%= link_to "Edit", edit_location_contact_path(id: location_contact.id), class: "btn btn-outline-info" %></td>
