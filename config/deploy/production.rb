@@ -46,7 +46,7 @@
    forward_agent: false
   #  auth_methods: %w(password)
  }
- server '13.232.178.174', user: 'ubuntu', roles: %w{app db web}
+ server '13.233.229.49', user: 'ubuntu', roles: %w{app db web}
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
